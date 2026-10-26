@@ -14,7 +14,10 @@
 | [비전과 센서](categories/vision-sensors.md) | OpenCV, 카메라 보정, 3D 비전, LiDAR/IMU, 센서 융합 |
 | [시뮬레이션과 디지털 트윈](categories/simulation-digital-twin.md) | MuJoCo, Gazebo, Isaac Sim/Lab, OpenUSD, Blender/CAD |
 | [로봇 학습과 LLM](categories/robot-learning-llm.md) | LeRobot, Hugging Face Hub, 데이터셋, VLM/VLA, 작업 계획 |
+| [6축 로봇팔 데이터셋 사전](datasets/6dof-arm-dataset-dictionary.md) | 실기 6축 시연, 시뮬레이션, 전이용 데이터, 파지 인식 자료 및 라이선스·호환 체크 |
+| [제조사·기종별 로봇 사용 문서](manufacturers/README.md) | 국내 제조사 중심으로 모델·세대·컨트롤러별 공식 매뉴얼과 ROS/SDK/안전 안내 |
 | [개발 도구와 운영](categories/dev-tools-ops.md) | Ubuntu, GitHub, 컨테이너, 시각화, 계측, 배포 |
+| [검증·안전·보안](categories/validation-safety-security.md) | 단위/통합·시뮬레이션/HIL 검증, 위험 평가, 기능 안전 경계, ROS 2 DDS 보안 |
 
 ## 조사·신뢰 기준
 
@@ -22,4 +25,5 @@
 - 주간 변경은 [weekly](weekly/)에 날짜가 붙은 노트로 남긴다. 기존 항목을 덮어쓰지 말고 오류 수정은 변경 로그에 설명한다.
 - 공식 문서와 upstream 저장소·릴리스 노트·논문을 우선한다. 블로그와 포럼은 사례/의견으로 표시하고 사실의 단독 근거로 쓰지 않는다.
 - 버전 숫자는 확인 시점의 스냅샷이다. 설치나 설계 판단 전에 공식 지원 행렬을 다시 확인한다.
+- 안전 표준 요약은 탐색을 돕는 링크와 범위 안내다. 적합성 판단에는 적용 관할·로봇 유형·현행 원문과 자격을 갖춘 안전 담당자의 평가가 필요하다.
 - 자료의 권리·라이선스를 존중한다. 접근 제한, 로그인 우회, 대량 수집은 하지 않는다. 요약은 재현 가능한 링크와 함께 작성한다.

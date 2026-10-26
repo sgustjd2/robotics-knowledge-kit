@@ -4,7 +4,8 @@ Claude Code, Antigravity, Codex가 함께 읽는 `SKILL.md`와 로봇 개발 지
 
 ## 구성
 
-- `skill/SKILL.md`: 조사·정리·주간 갱신에 쓰는 공용 Agent Skill
+- `skill/SKILL.md`: 조사·정리·주간 갱신용 `robotics-knowledge` 스킬
+- `skill/robotics-engineering/SKILL.md`: 지식베이스를 참조해 개발·아키텍처 설계를 돕는 `robotics-engineering` 스킬
 - `robotics-wiki/`: 카테고리별 기준 자료, 학습 경로, 출처 목록, 주간 노트
 - `install.ps1`: 현재 사용자 계정의 Codex·Claude Code·Antigravity 공용 스킬 폴더에 설치
 
@@ -24,4 +25,4 @@ Codex 자동화는 매주 월요일 오전 9시(Asia/Seoul)에 이 대화에서 
 
 ## 공유
 
-팀 공용 Git 저장소에 `robotics-wiki/`와 `skill/SKILL.md`를 커밋하고, 각 개발자가 설치 스크립트를 실행하면 됩니다. 사내 비공개 자료나 자격 증명은 주간 조사에 포함하지 않습니다.
+팀 공용 Git 저장소에 `robotics-wiki/`와 두 스킬을 함께 관리합니다. 각 개발자가 설치 스크립트를 실행하면 조사·갱신 스킬과 개발·설계 스킬이 Codex, Claude Code, Antigravity에 설치됩니다. 사내 비공개 자료나 자격 증명은 주간 조사에 포함하지 않습니다.

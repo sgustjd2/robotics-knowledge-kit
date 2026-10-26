@@ -22,7 +22,7 @@ Look for `robotics-wiki/INDEX.md` in the current repository or task workspace. I
 
 ## Organize
 
-Use the categories in `robotics-wiki/INDEX.md`: ROS 2/control, vision/sensors, simulation/digital twin, robot learning/LLM, and developer tools/operations. Add a new category only when a recurring topic does not fit. Put durable concepts in the category page and dated changes in `robotics-wiki/weekly/YYYY-Www.md`; update the source registry when a source is newly adopted or its status changes.
+Use the categories in `robotics-wiki/INDEX.md`: ROS 2/control, vision/sensors, simulation/digital twin, robot learning/LLM, manufacturer manuals, developer tools/operations, and validation/safety/security. Keep vendor-specific setup in `robotics-wiki/manufacturers/<brand>.md`; record the exact model, controller/software revision, supported ROS distribution, and official source. Do not generalize settings across models or revisions. Add a new category only when a recurring topic does not fit. Put durable concepts in the relevant page and dated changes in `robotics-wiki/weekly/YYYY-Www.md`; update the source registry when a source is newly adopted or its status changes.
 
 Keep the learning path coherent: development foundations → coordinates and robot description → ROS 2/control → perception → navigation/manipulation → simulation/digital twin → learning and task planning → sim-to-real/deployment. Adapt the path to the team's actual platform.
 
@@ -43,5 +43,6 @@ Do not expose company secrets, credentials, private datasets, or internal robot 
 - `robotics-wiki/INDEX.md`: navigation and evidence rules
 - `robotics-wiki/curriculum/learning-path.md`: staged learning map
 - `robotics-wiki/categories/`: durable topic references
+- `robotics-wiki/manufacturers/`: vendor-specific manuals and model/version notes
 - `robotics-wiki/sources/registry.md`: canonical sources and review notes
 - `robotics-wiki/weekly/`: dated update records

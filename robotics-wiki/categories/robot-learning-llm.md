@@ -13,7 +13,10 @@
 
 ## 기준 링크
 
+- [6축 로봇팔 데이터셋 사전](../datasets/6dof-arm-dataset-dictionary.md): 실기 6축·시뮬레이션·전이·파지 데이터 분류 및 호환성 점검
+
 - [LeRobot 문서](https://huggingface.co/docs/lerobot)
 - [LeRobot GitHub](https://github.com/huggingface/lerobot)
 - [Hugging Face LeRobot 조직·최근 활동](https://huggingface.co/lerobot)
 - [Hugging Face robotics task 검색](https://huggingface.co/tasks/robotics)
+- [Microduck + Isaac Lab 3.0 sim-to-real 예제](https://huggingface.co/blog/nvidia/microduck-isaac-lab-sim-to-real): 2026-10-21 공개된 소형 biped 보행 정책 학습→평가→ONNX export→실기 배포 사례. 사용 대상 기종/모델 형식과 license는 예제의 실제 코드·모델 카드에서 확인한다. 보행용 biped의 성공이 6축 팔이나 FAIRINO FR3 제어 호환성을 뜻하지 않는다.

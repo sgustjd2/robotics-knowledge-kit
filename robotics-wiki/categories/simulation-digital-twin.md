@@ -17,6 +17,14 @@
 3. CAD, URDF, MJCF, USD 사이 변환은 최소 샘플 로봇으로 joint axis, origin, unit, inertia, collision geometry를 비교한다.
 4. sim-to-real은 센서 노이즈·마찰·질량·지연·조명 변화를 명시적으로 모델링하고 실제 실험으로 차이를 측정한다.
 
+## OpenUSD 자산을 시뮬레이션에 쓰기
+
+[SimReady Central](https://huggingface.co/blog/nvidia/simready-central-assets-robotics-ai-factories)은 2026-10-21 발표된 OpenUSD simulation-ready 자산 검색/공유 라이브러리다. 로봇팔·그리퍼·작업장 자산을 조립할 때는 CAD 형상만 보는 대신 목표 작업 프로파일에 맞는 충돌 형상, 질량/마찰, 관절·한계, semantic label, 재질/센서 속성과 검증 근거를 확인한다. [SimReady Central HF 데이터 페이지](https://huggingface.co/datasets/nvidia/simready-central-library)는 현재 Alpha라고 표시하며 파일 접근 전 Hugging Face 계정 정보 제공 동의가 필요하다. 블로그의 “ungated” 소개만으로 현재 데이터 파일 접근이나 사용권을 가정하지 않는다. 각 기여자의 저장소, 버전, 개별 license, 프로파일과 런타임 호환성을 사용 전에 확인한다.
+
+시뮬레이터 시간 또는 월드 reset은 단순한 `/clock` 후퇴 문제가 아니다. controller 적분기/trajectory 내부 상태와 simulator의 관절 상태를 함께 복구할 수 있어야 한다. [ros2_control upstream의 reset semantics 논의](https://github.com/ros-controls/ros2_control/issues/3715)는 2026-10-22 현재 open design issue이며 확정 API/보장 사항이 아니다. 대상 simulator integration의 reset callback·상태 복원 동작을 따로 검증하고, 검증 전에는 컨트롤러 재시작/초기화 절차를 정한다.
+
+[Mundo](https://mundo-world-model.github.io/)는 2026-10-23 공개된 연구 프리뷰로, 사진/영상에서 얻은 3D proxy·scene program·MuJoCo 물리 실행과 비디오 생성 모델을 결합해 장소별 Real-to-Sim 장면을 보여준다. 저자 프로젝트 페이지와 [GitHub README](https://github.com/Luo-Yihang/Mundo)는 code/weights 공개를 11월 말로 예정한다고 표시해 현재 공개된 repo만으로 재현 가능한 도구라고 취급하지 않는다. 발표 자료는 재구성 시간, 작은 물체 상호작용의 환각, 긴 시간의 일관성 한계를 명시한다. 따라서 시뮬레이션 boundary/표현 설계를 살펴볼 연구 사례로 분류하며, 합성 영상이나 그럴듯한 결과를 기하·물리 정확도/실기 검증의 증거로 쓰지 않는다.
+
 ## 기준 링크
 
 - [MuJoCo 문서](https://mujoco.readthedocs.io/en/stable/)
@@ -25,3 +33,5 @@
 - [Isaac Sim 시작 학습](https://docs.nvidia.com/learning/physical-ai/getting-started-with-isaac-sim/latest/index.html)
 - [OpenUSD 학습·검증 인덱스](https://docs.nvidia.com/learn-openusd/latest/openusd-cheatsheet.html)
 - [디지털 트윈 Physical AI 학습 경로](https://www.nvidia.com/en-us/learn/learning-path/digital-twins.md/)
+- [SimReady Foundation 검증 요구사항](https://github.com/NVIDIA/SimReady)
+- [SimReady Central 자산 라이브러리](https://huggingface.co/datasets/nvidia/simready-central-library)
