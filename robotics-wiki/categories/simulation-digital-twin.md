@@ -25,12 +25,20 @@
 
 [Mundo](https://mundo-world-model.github.io/)는 2026-10-23 공개된 연구 프리뷰로, 사진/영상에서 얻은 3D proxy·scene program·MuJoCo 물리 실행과 비디오 생성 모델을 결합해 장소별 Real-to-Sim 장면을 보여준다. 저자 프로젝트 페이지와 [GitHub README](https://github.com/Luo-Yihang/Mundo)는 code/weights 공개를 11월 말로 예정한다고 표시해 현재 공개된 repo만으로 재현 가능한 도구라고 취급하지 않는다. 발표 자료는 재구성 시간, 작은 물체 상호작용의 환각, 긴 시간의 일관성 한계를 명시한다. 따라서 시뮬레이션 boundary/표현 설계를 살펴볼 연구 사례로 분류하며, 합성 영상이나 그럴듯한 결과를 기하·물리 정확도/실기 검증의 증거로 쓰지 않는다.
 
+## Isaac Lab 3.0 마이그레이션
+
+[Isaac Lab 3.0.0](https://github.com/isaac-sim/IsaacLab/releases/tag/v3.0.0)은 2026-10-20 공개된 GA이며, 10-22 공식 공지가 이를 확인한다. 단일 task API에서 Newton(MuJoCo-Warp 포함), OVPhysX/OVRTX, Isaac Sim backend를 선택하는 구조다. 릴리스가 제시한 기준 조합은 Isaac Sim 6.2, Python 3.12, PyTorch 2.11/CUDA 13, Warp 1.17, Newton 1.6.1, RSL-RL 5.5.1이다. Isaac Sim이 필요한 ROS bridge, XR, Kit 기능은 별도 사용 경로이며 지원 backend 조합은 task별로 확인한다.
+
+3.0은 단순 minor upgrade가 아니다. quaternion 순서가 WXYZ에서 XYZW로 바뀌고, asset/sensor `.data.*`는 명시적 `.torch` 또는 `.warp` 접근을 위한 `ProxyArray`가 되며, 쓰기 API는 index/mask 경로를 분리한다. 2.x 환경을 그대로 upgrade하지 말고 새 Python 3.12 환경에서 공식 migration 문서에 따라 pose·reset·controller 목표·관측 코드와 backend별 task를 검증한다. Isaac Lab framework는 BSD-3-Clause이며, 의존성·asset 및 Isaac Sim 사용 조건은 별도로 확인한다.
+
 ## 기준 링크
 
 - [MuJoCo 문서](https://mujoco.readthedocs.io/en/stable/)
+- [MuJoCo upstream releases](https://github.com/google-deepmind/mujoco/releases): 현재 버전은 이력에서 확인하고 API/model 변경을 regression test로 검증
 - [Gazebo Harmonic ROS 2 통합](https://gazebosim.org/docs/harmonic/ros2_integration/)
 - [Gazebo와 ROS 배포판 설치 조합](https://gazebosim.org/docs/latest/ros_installation/)
 - [Isaac Sim 시작 학습](https://docs.nvidia.com/learning/physical-ai/getting-started-with-isaac-sim/latest/index.html)
+- [Isaac Lab releases](https://github.com/isaac-sim/IsaacLab/releases) · [3.0 license/설치 문서](https://isaac-sim.github.io/IsaacLab/main/source/refs/license.html): Isaac Lab과 Isaac Sim 버전/기능/license 경계를 각각 확인
 - [OpenUSD 학습·검증 인덱스](https://docs.nvidia.com/learn-openusd/latest/openusd-cheatsheet.html)
 - [디지털 트윈 Physical AI 학습 경로](https://www.nvidia.com/en-us/learn/learning-path/digital-twins.md/)
 - [SimReady Foundation 검증 요구사항](https://github.com/NVIDIA/SimReady)

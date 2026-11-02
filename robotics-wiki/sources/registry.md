@@ -1,6 +1,6 @@
 # 출처 등록부
 
-최근 전체 점검: 2026-10-26. 개별 항목의 확인일은 각 행을 기준으로 하며, 버전과 기능은 변경 전 원문을 다시 확인한다.
+최근 전체 점검: 2026-11-02. 개별 항목의 확인일은 각 행을 기준으로 하며, 버전과 기능은 변경 전 원문을 다시 확인한다.
 
 | 출처 | 유형/분야 | 현재 확인한 내용 | 신뢰·갱신 메모 |
 |---|---|---|---|
@@ -39,7 +39,10 @@
 | [Microduck + Isaac Lab 3.0 sim-to-real 예제](https://huggingface.co/blog/nvidia/microduck-isaac-lab-sim-to-real) · [Pollen Robotics Microduck](https://github.com/pollen-robotics/microduck) | NVIDIA/Hugging Face 및 제조사 upstream / 로봇 학습 사례 | 2026-10-21 게시물은 biped locomotion을 Isaac Lab/Newton에서 학습·평가하고 ONNX 정책으로 실기에 배포하는 학습 경로 설명 | 2026-10-26 확인. 특정 Microduck 하드웨어/모델의 사례이며 6축 팔 또는 FR3에 전이 호환되지 않음. 소프트웨어·기계 설계물의 license 범위는 upstream 별도 확인 |
 | [ros2_control simulator-reset design issue #3715](https://github.com/ros-controls/ros2_control/issues/3715) | upstream 이슈 / ROS 2 제어·시뮬레이션 경계 | 2026-10-22 열린 설계 논의: simulator reset/time rewind 때 loop 시간, controller/trajectory state, 하드웨어 상태 복구를 어디서 보장할지 질문 | 2026-10-26 확인. open issue이며 API/정책 확정이 아님. 실제 프로젝트는 통합별 reset 동작을 검증하고 재초기화 절차를 정의 |
 | [Mundo project page](https://mundo-world-model.github.io/) · [GitHub](https://github.com/Luo-Yihang/Mundo) · [발표 글](https://huggingface.co/blog/Luo-Yihang/mundo-world-model) | 연구 프로젝트·커뮤니티 기술 발표 / real-to-sim·world model | 2026-10-23 발표. 입력 장소 이미지→3D proxy/scene program→MuJoCo simulation→video-model rendering 구조; 프로젝트 페이지는 탐색·navigation·manipulation 시연 제공 | 2026-10-26 확인. GitHub README에서 코드/가중치 11월 말 예정 표시, 현재 repo는 실행성 미확인. 원문에서 속도·작은 물체 상호작용·장기 메모리 한계를 공개. 연구 관찰만; 기하/물리 정확도 또는 sim-to-real 성공 증거 아님 |
-| [LeRobot GitHub releases](https://github.com/huggingface/lerobot/releases) · [v0.4.0 release blog](https://huggingface.co/blog/lerobot-release-v040) | upstream release / 로봇 학습 라이브러리 | GitHub release 화면에는 v0.4.0의 2026-10-23 생성/게시 시각이, 연결된 발표 글에는 2025-10-24가 표시되어 release chronology가 불일치 | 2026-10-26 확인. v0.4.0을 최근 stable upgrade로 취급하지 않음; tag/release history 및 compatibility 확인 전 기존 v0.6.x 계열 guidance 유지 |
+| [LeRobot GitHub releases](https://github.com/huggingface/lerobot/releases) · [v0.4.0 release blog](https://huggingface.co/blog/lerobot-release-v040) | upstream release / 로봇 학습 라이브러리 | GitHub release 화면에는 v0.4.0의 2026-10-23 생성/게시 시각이, 연결된 발표 글에는 2025-10-24가 표시되어 release chronology가 불일치; 최신 표시 v0.6.1(2026-08-03) | 2026-11-02 확인. v0.4.0 날짜/tag provenance 모순은 해결 전까지 upgrade 근거로 사용하지 않음; 프로젝트별 호환성 확인 |
+| [MuJoCo upstream releases](https://github.com/google-deepmind/mujoco/releases) · [source license](https://github.com/google-deepmind/mujoco/blob/main/LICENSE) | 공식 upstream / 물리 시뮬레이션·제어 | 최신 표시 3.17.0(2026-10-22); 3.16.0(10-14)은 frame scaling 및 C API 변경, 3.17.0은 thread-pool batch simulation API 추가 | 2026-11-02 확인. 소스 Apache-2.0, 문서/이미지 CC BY 4.0. 3.16/3.17 migration과 model behavior를 사용하는 버전에서 재시험 |
+| [Isaac Lab v3.0.0 release](https://github.com/isaac-sim/IsaacLab/releases/tag/v3.0.0) · [GA announcement](https://github.com/isaac-sim/IsaacLab/discussions/8775) · [license](https://isaac-sim.github.io/IsaacLab/main/source/refs/license.html) | NVIDIA upstream / robot learning·simulation | 2026-10-20 release, 10-22 GA 공지. Newton/MuJoCo-Warp, OVPhysX/OVRTX, Isaac Sim multi-backend; Isaac Sim 6.2·Python 3.12·PyTorch 2.11/CUDA 13 기준 조합 | 2026-11-02 확인. framework BSD-3-Clause; dependency/asset 및 Isaac Sim 사용 조건 별도. XYZW quaternion, ProxyArray, index/mask API 변경 때문에 fresh env/migration 검증 필요 |
+| [ros2_control issue #3716](https://github.com/ros-controls/ros2_control/issues/3716) · [issue #3718](https://github.com/ros-controls/ros2_control/issues/3718) | upstream bug 보고 / 제어 lifecycle·설정 | #3716: 10-27 controller shutdown 중 update/release race 보고(제보 환경 Ubuntu 24.04/Jazzy 4.45.2 및 master); #3718: 10-28 특정 nested namespace YAML이 load_controller에서 누락되는 사례 보고 | 2026-11-02 확인. 열린 이슈로 미해결; release behavior로 단정 금지. mock shutdown 및 실제 YAML 형태 회귀 시험, 영향 버전 추적 |
 
 ## 평가용 리포지토리 체크
 
