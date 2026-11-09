@@ -31,6 +31,10 @@
 
 3.0은 단순 minor upgrade가 아니다. quaternion 순서가 WXYZ에서 XYZW로 바뀌고, asset/sensor `.data.*`는 명시적 `.torch` 또는 `.warp` 접근을 위한 `ProxyArray`가 되며, 쓰기 API는 index/mask 경로를 분리한다. 2.x 환경을 그대로 upgrade하지 말고 새 Python 3.12 환경에서 공식 migration 문서에 따라 pose·reset·controller 목표·관측 코드와 backend별 task를 검증한다. Isaac Lab framework는 BSD-3-Clause이며, 의존성·asset 및 Isaac Sim 사용 조건은 별도로 확인한다.
 
+## MuJoCo 4.0
+
+[MuJoCo 4.0.0](https://github.com/google-deepmind/mujoco/releases/tag/4.0.0)은 2026-11-06 공개됐다. upstream은 Studio/Filament viewer·SDK, implicit deformables, speculative contacts와 `mujoco-core`+optional component 패키지 구조를 소개한다. Python 3.10 지원 중단 및 일부 soft-body API 제거/대체가 있으므로 [4.0 발표·migration 안내](https://github.com/google-deepmind/mujoco/discussions/3773)를 확인하고 기존 MJCF·plugin·bridge를 고정 버전에서 비교한다. 소스는 Apache-2.0; 문서와 모델 자산 조건은 별도 확인한다. 이 release는 물리 정확도 또는 실기 sim-to-real 성공의 보증이 아니다.
+
 ## 기준 링크
 
 - [MuJoCo 문서](https://mujoco.readthedocs.io/en/stable/)

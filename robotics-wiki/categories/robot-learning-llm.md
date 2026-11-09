@@ -20,3 +20,7 @@
 - [Hugging Face LeRobot 조직·최근 활동](https://huggingface.co/lerobot)
 - [Hugging Face robotics task 검색](https://huggingface.co/tasks/robotics)
 - [Microduck + Isaac Lab 3.0 sim-to-real 예제](https://huggingface.co/blog/nvidia/microduck-isaac-lab-sim-to-real): 2026-10-21 공개된 소형 biped 보행 정책 학습→평가→ONNX export→실기 배포 사례. 사용 대상 기종/모델 형식과 license는 예제의 실제 코드·모델 카드에서 확인한다. 보행용 biped의 성공이 6축 팔이나 FAIRINO FR3 제어 호환성을 뜻하지 않는다.
+
+## LeRobot v0.7.0 업데이트 (2026-11-05)
+
+[upstream release](https://github.com/huggingface/lerobot/releases/tag/v0.7.0)은 데이터 스트리밍, 원격 추론과 학습/하드웨어 계층을 갱신했지만 v0.6.1에서 설치·학습·추론 API가 크게 바뀌었다. Linux 기본 PyTorch wheel이 CUDA 13이며 NVIDIA driver 580.65 이상을 요구하고, FSDP1→FSDP2/HSDP·W&B→Trackio 등 migration 항목이 있다. 코드는 Apache-2.0(저장소 LICENSE 확인); 각 모델·데이터셋은 개별 카드의 라이선스를 따로 확인한다. FR3 연동은 지원으로 간주하지 말고 해당 driver, 제어 인터페이스와 안전 경계를 별도로 검증한다.

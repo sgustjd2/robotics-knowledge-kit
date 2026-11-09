@@ -25,3 +25,7 @@ ROS 배포판·Ubuntu·시뮬레이터 조합을 먼저 고정한다. QoS, clock
 - [Universal Robots ROS 2 description 예제](https://docs.universal-robots.com/Universal_Robots_ROS2_Documentation/doc/ur_description/doc/index.html)
 
 설치 단계에서는 해당 시점의 지원 배포판과 binary availability를 공식 표에서 재확인한다.
+
+### 설정 파싱·시뮬레이션 reset 회귀 확인 (2026-11-09)
+
+upstream [#3719](https://github.com/ros-controls/ros2_control/pull/3719)에서 controller parameter YAML의 중첩 namespace 지원이 master에 병합됐고, Jazzy/Kilted backport도 병합됐다. 사용 중인 배포판 패키지에 수정이 포함됐는지 확인한 뒤 실제 중첩 YAML로 `load_controller`를 검증한다. shutdown race 수정 [#3721](https://github.com/ros-controls/ros2_control/pull/3721)과 backward clock jump 처리 [#3745](https://github.com/ros-controls/ros2_control/pull/3745)는 아직 열린 PR이므로 현재 동작으로 가정하지 않는다. 시뮬레이터 reset 후 controller/trajectory 상태 재초기화와 종료 회귀 시험을 통합 수준에서 유지한다.
