@@ -24,3 +24,7 @@
 ## LeRobot v0.7.0 업데이트 (2026-11-05)
 
 [upstream release](https://github.com/huggingface/lerobot/releases/tag/v0.7.0)은 데이터 스트리밍, 원격 추론과 학습/하드웨어 계층을 갱신했지만 v0.6.1에서 설치·학습·추론 API가 크게 바뀌었다. Linux 기본 PyTorch wheel이 CUDA 13이며 NVIDIA driver 580.65 이상을 요구하고, FSDP1→FSDP2/HSDP·W&B→Trackio 등 migration 항목이 있다. 코드는 Apache-2.0(저장소 LICENSE 확인); 각 모델·데이터셋은 개별 카드의 라이선스를 따로 확인한다. FR3 연동은 지원으로 간주하지 말고 해당 driver, 제어 인터페이스와 안전 경계를 별도로 검증한다.
+
+### 최근 공개 데이터 예시: NVIDIA GRAIL
+
+[GRAIL dataset card](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-Locomanipulation-GRAIL)는 Unitree G1용 simulation locomotion/manipulation trajectory를 제공하며, 2026-11-10 `stair_p3`/`stair_p4` 계단 모션 추가를 기록한다. 카드 라이선스는 CC BY-NC 4.0이므로 비상업 연구 참고로만 다루고 상업 목적 사용에는 권하지 않는다. 6축 팔 실기 trajectory가 아니며 [6축 데이터셋 사전](../datasets/6dof-arm-dataset-dictionary.md)의 대체 항목이 아니다.

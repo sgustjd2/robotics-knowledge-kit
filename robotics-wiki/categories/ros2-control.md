@@ -29,3 +29,7 @@ ROS 배포판·Ubuntu·시뮬레이터 조합을 먼저 고정한다. QoS, clock
 ### 설정 파싱·시뮬레이션 reset 회귀 확인 (2026-11-09)
 
 upstream [#3719](https://github.com/ros-controls/ros2_control/pull/3719)에서 controller parameter YAML의 중첩 namespace 지원이 master에 병합됐고, Jazzy/Kilted backport도 병합됐다. 사용 중인 배포판 패키지에 수정이 포함됐는지 확인한 뒤 실제 중첩 YAML로 `load_controller`를 검증한다. shutdown race 수정 [#3721](https://github.com/ros-controls/ros2_control/pull/3721)과 backward clock jump 처리 [#3745](https://github.com/ros-controls/ros2_control/pull/3745)는 아직 열린 PR이므로 현재 동작으로 가정하지 않는다. 시뮬레이터 reset 후 controller/trajectory 상태 재초기화와 종료 회귀 시험을 통합 수준에서 유지한다.
+
+### controller-manager clock 변경 (2026-11-10)
+
+[ros2_control #3754](https://github.com/ros-controls/ros2_control/pull/3754)는 cycle 안에서 반복 조회하던 clock/time 객체를 한 번씩만 얻도록 바꾸며 master, [Jazzy #3773](https://github.com/ros-controls/ros2_control/pull/3773), [Kilted #3774](https://github.com/ros-controls/ros2_control/pull/3774)에 병합됐다. PR의 mock/no-op benchmark는 10·30 controller일 때 각각 약 20%·25% 감소를 보고했지만 production workload의 보장은 아니다. `libstatistics_collector` 제거 [#3772](https://github.com/ros-controls/ros2_control/pull/3772)는 Rolling/master 대상이므로 distro와 package dependency를 확인한다. #3745의 backward-clock fix와 #3721 shutdown fix는 별도 open PR로 남아 있다(2026-11-16 확인).
